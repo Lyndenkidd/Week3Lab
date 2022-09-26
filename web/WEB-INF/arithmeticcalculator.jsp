@@ -16,14 +16,15 @@
         
         <form action ="arithmetic" method="post">
             First Number: <input type = "number" name="firstnum" value= "${firstnum}"> <br>
-             Second Number Number: <input type = "number" name="secondnum" value= "${secondnum}"> <br>
+             Second Number: <input type = "number" name="secondnum" value= "${secondnum}"> <br>
              
             
-           <input type="submit" value="+">
-            <input type="submit" value="-">
-             <input type="submit" value="*">
-              <input type="submit" value="%">
+           <input type="submit"  name="button"value="+">
+            <input type="submit"  name="button" value="-">
+             <input type="submit"  name="button" value="*">
+              <input type="submit"  name="button" value="%">
             </form>
         
+             <p> ${returnStatement}</p>
     </body>
 </html>

@@ -32,30 +32,62 @@ public class ArithmeticCalculatorServlet2 extends HttpServlet {
             throws ServletException, IOException {
         
         
-      String age = request.getParameter("age");
-      request.setAttribute("Age", age);
+      String firstNumber = request.getParameter("firstnum");
       
-      if (age == null || age.equals("")){
+      String secondNumber = request.getParameter("secondnum");
+      
+      request.setAttribute("firstnum", firstNumber);
+       request.setAttribute("secondnum", secondNumber);
+       
+       
+       if (firstNumber == null || firstNumber.equals("") || secondNumber == null
+              || secondNumber.equals("")){
+             request.setAttribute("returnStatement", "Invalid Number(s)");
+           
+       } else if (request.getParameter("button").equals("+")){
+           
+           int num1 = Integer.parseInt(firstNumber);
+           int num2 = Integer.parseInt(secondNumber);
+           int value;
+          value = num1 + num2;
           
-          request.setAttribute("returnStatement", "Please enter a valid age");
+          request.setAttribute("returnStatement", "Result: " + value);
+           
+           
+         
+       } else if (request.getParameter("button").equals("-")){
+           
+           int num1 = Integer.parseInt(firstNumber);
+           int num2 = Integer.parseInt(secondNumber);
+           int value;
+          value = num1 - num2;
           
-      }
-      else{
-            int parsedAge = Integer.parseInt(age);
-            int nextBirthday = parsedAge + 1;
-            
-            request.setAttribute("returnStatement", "your next birthday will be " + nextBirthday);
-                  
-      }
+          request.setAttribute("returnStatement", "Result: " + value);
           
+            } else if (request.getParameter("button").equals("*")){
+           
+           int num1 = Integer.parseInt(firstNumber);
+           int num2 = Integer.parseInt(secondNumber);
+           int value;
+          value = num1 * num2;
           
+          request.setAttribute("returnStatement", "Result: " + value);
           
+             } else if (request.getParameter("button").equals("%")){
+           
+           int num1 = Integer.parseInt(firstNumber);
+           int num2 = Integer.parseInt(secondNumber);
+           int value;
+          value = num1 % num2;
           
-          getServletContext().getRequestDispatcher("/WEB-INF/agecalculator.jsp")
+          request.setAttribute("returnStatement", "Result: " + value);
+             }
+      
+          getServletContext().getRequestDispatcher("/WEB-INF/arithmeticcalculator.jsp")
                 .forward(request,response);
           return;
-          
-      }      
+      
+      
     }
-
+}
  
