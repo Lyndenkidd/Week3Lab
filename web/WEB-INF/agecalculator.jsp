@@ -19,10 +19,12 @@
         <form action ="age" method="post">
             Enter your age: <input type = "number" name="age" value= "${age}"> <br>
             
-           <input type="submit" value="submit">
+           <input type="submit" value="Age Next Birthday">
             </form>
                 
                 <p> ${returnStatement}</p>
+                
+                <a href="arithmetic">Arithmetic Calculator</a>
                     
     </body>          
 </html>
